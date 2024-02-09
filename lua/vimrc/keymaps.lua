@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+local term_opts = { noremap = true, silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -77,7 +77,7 @@ keymap("n", "<C-k>", "2<C-y>", opts)
 
 -- Close buffer
 keymap("n", "<leader>w", "<cmd>Bdelete<CR>", opts)
-keymap("n", "<C-q>", "<cmd>Bclose select<CR>", opts)
+-- keymap("n", "<C-q>", "<cmd>Bclose select<CR>", opts)
 
 -- Select all
 keymap("n", "<leader>sa", "gg<S-v>G", opts)
@@ -145,6 +145,8 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "jk", "<C-\\><C-N>", term_opts)
+keymap("t", "<Esc>", "<C-\\><C-N>", term_opts)
 
 
 -------------------------------------------------------------------------

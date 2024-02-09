@@ -2,7 +2,6 @@ local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
   return
 end
-
 vim.cmd [[highlight NvimTreeNormal guibg=#24262A]]
 
 local opts = { noremap = true, silent = true }
@@ -27,7 +26,7 @@ local function my_on_attach(bufnr)
       noremap = true,
       silent = true,
       nowait = true
-  }
+    }
   end
 
   -- default mappings
@@ -47,20 +46,27 @@ end
 
 -- OR setup with some options
 nvim_tree.setup({
+  on_attach = my_on_attach,
   sort = {
     sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
   },
   renderer = {
     group_empty = true,
   },
   filters = {
     dotfiles = false,
+    git_ignored = false,
   },
-  git = {
-    ignore = false,
+  help = {
+    sort_by = "desc",
   },
-  on_attach = my_on_attach,
 })
+
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   nested = true,
+--   callback = function()
+--     if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+--       vim.cmd "quit"
+--     end
+--   end
+-- })

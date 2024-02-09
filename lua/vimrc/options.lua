@@ -10,7 +10,7 @@ local options = {
     breakindent = true,
     breakindentopt = "shift:2",
 -- searching
---     hlsearch = true,
+    hlsearch = false,
 --     ignorecase = true,
 --     smartcase = true,
 -- linewidth
@@ -23,7 +23,7 @@ local options = {
     mouse = "a",
 -- line numbers
     nu = true,
-    relativenumber = false,
+    relativenumber = true,
     numberwidth = 2,
     signcolumn = "yes",
 -- extra files
