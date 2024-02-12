@@ -15,18 +15,16 @@ require("lazy").setup({
   -------------------------------------------------------------------------
   ---------------------------- BASIC FEATURES -----------------------------
   -------------------------------------------------------------------------
-  {
-    "nvim-tree/nvim-tree.lua", version = "*", lazy = false,
+  { -- file tree
+    "nvim-tree/nvim-tree.lua", version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require('plugins.nvimtree') end,
-  },
-  {
-    'nvim-lualine/lualine.nvim', lazy = false,
+  }, { -- status bar (bottom)
+    'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function() require('plugins.lualine') end,
-  },
-  {
-    'akinsho/bufferline.nvim', lazy = false, version = "*",
+  }, { -- tab bar
+    'akinsho/bufferline.nvim', version = "*",
     dependencies = { 'nvim-tree/nvim-web-devicons', 'moll/vim-bbye' },
     config = function() require('plugins.bufferline') end,
   },
@@ -34,35 +32,30 @@ require("lazy").setup({
   ----------------------------- BETTER EDITOR -----------------------------
   -------------------------------------------------------------------------
   { -- language grammar parser
-    "nvim-treesitter/nvim-treesitter", lazy = false,
-    build = ":TSUpdate"
-  },
-  { -- language-specific comments
-    'numToStr/Comment.nvim', lazy = false,
-    config = function() require('Comment').setup() end,
-  }, 
-  { -- determine # of indent spaces
-    'Darazaki/indent-o-matic', lazy = false,
-    config = function() require('indent-o-matic').setup{} end,
-  },
-  { -- indentation marker lines
-    "lukas-reineke/indent-blankline.nvim", lazy = false, main = "ibl", opts = {},
+    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
+  }, { -- language-specific comments
+    'numToStr/Comment.nvim', config = function() require('Comment').setup() end,
+  }, { -- determine # of indent spaces
+    'Darazaki/indent-o-matic', config = function() require('indent-o-matic').setup{} end,
+  }, { -- indentation marker lines
+    "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {},
     config = function() require("ibl").setup() end,
-  },
-  { -- change surrounding quotes
+  }, { -- change surrounding quotes
     "kylechui/nvim-surround", version = "*", event = "VeryLazy",
     config = function() require("nvim-surround").setup{} end
+  }, { -- rainbow color brackets
+    'HiPhish/rainbow-delimiters.nvim',
+  }, { -- pair brackets 
+    'windwp/nvim-autopairs', event = "InsertEnter", opts = {}
   },
-  { 'HiPhish/rainbow-delimiters.nvim', lazy = false }, -- rainbow color brackets
-  { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} }, -- pair brackets
   -------------------------------------------------------------------------
   ----------------- COLOR THEME: Onedark inspired by Atom -----------------
   -------------------------------------------------------------------------
   {
-    'navarasu/onedark.nvim', lazy = false,
+    'navarasu/onedark.nvim',
     config = function()
       require('onedark').setup({
-        toggle_style_key = '<leader>ts',
+        toggle_style_key = '<leader>ls',
       })
       require('onedark').load()
     end,
