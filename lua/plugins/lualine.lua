@@ -13,6 +13,6 @@ lualine.setup({
   },
   extensions = {
     "nvim-tree",
-    -- "toggleterm",
+    "toggleterm",
   },
 })

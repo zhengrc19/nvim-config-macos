@@ -67,4 +67,15 @@ require("lazy").setup({
       require('onedark').load()
     end,
   },
+  -------------------------------------------------------------------------
+  ------------------------------ IDE FEATURES -----------------------------
+  -------------------------------------------------------------------------
+  { -- built-in terminal
+    'akinsho/toggleterm.nvim', version = "*",
+    config = function() require('plugins.toggleterm') end
+  }, { -- LSP installer and config
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  },
 })
