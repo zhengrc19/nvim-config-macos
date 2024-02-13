@@ -52,6 +52,17 @@ nvim_tree.setup({
   },
   renderer = {
     group_empty = true,
+    indent_markers = {
+      enable = true,
+    },
+    icons = {
+      glyphs = {
+        git = {
+          unstaged = 'M',
+          untracked = 'U'
+        }
+      }
+    }
   },
   filters = {
     dotfiles = false,
