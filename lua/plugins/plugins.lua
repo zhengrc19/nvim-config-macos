@@ -47,6 +47,10 @@ require("lazy").setup({
     'HiPhish/rainbow-delimiters.nvim',
   }, { -- pair brackets 
     'windwp/nvim-autopairs', event = "InsertEnter", opts = {}
+  }, { -- git change sign column
+    'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end,
+  }, { -- show colors on hex
+    'norcalli/nvim-colorizer.lua', config = function() require("colorizer").setup() end,
   },
   -------------------------------------------------------------------------
   ----------------- COLOR THEME: Onedark inspired by Atom -----------------
