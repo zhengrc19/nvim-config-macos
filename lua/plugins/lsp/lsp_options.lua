@@ -30,18 +30,45 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- set variable highlight
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
       vim.api.nvim_exec(
         [[
-        augroup lsp_document_highlight
-          autocmd! * <buffer>
-          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-      ]],
+          augroup lsp_document_highlight
+            autocmd! * <buffer>
+            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+          augroup END
+        ]],
         false
       )
     end
   end,
 })
 
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   group = vim.api.nvim_create_augroup('VariableHighlight', {}),
+--   callback = function(ev)
+--     -- set variable highlight
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     if client.server_capabilities.documentHighlightProvider then
+--       local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
+--
+--       vim.opt.updatetime = 1000
+--
+--       vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--         buffer = bufnr,
+--         group = group,
+--         callback = function()
+--           vim.lsp.buf.document_highlight()
+--         end,
+--       })
+--       vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+--         buffer = bufnr,
+--         group = group,
+--         callback = function()
+--           vim.lsp.buf.clear_references()
+--         end,
+--       })
+--     end,
+--   end
+-- })
