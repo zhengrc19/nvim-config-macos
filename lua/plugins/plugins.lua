@@ -16,7 +16,7 @@ require("lazy").setup({
   ---------------------------- BASIC FEATURES -----------------------------
   -------------------------------------------------------------------------
   { -- file tree
-    "nvim-tree/nvim-tree.lua", version = "*",
+    "nvim-tree/nvim-tree.lua", version = "*", priority = 99,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require('plugins.nvimtree') end,
   }, { -- status bar (bottom)
@@ -58,11 +58,9 @@ require("lazy").setup({
   ----------------- COLOR THEME: Onedark inspired by Atom -----------------
   -------------------------------------------------------------------------
   {
-    'navarasu/onedark.nvim',
+    'navarasu/onedark.nvim', priority = 101,
     config = function()
-      require('onedark').setup({
-        toggle_style_key = '<leader>ls',
-      })
+      require('onedark').setup({ toggle_style_key = '<leader>ls', })
       require('onedark').load()
     end,
   },
@@ -95,5 +93,13 @@ require("lazy").setup({
     dependencies = { "rafamadriz/friendly-snippets" },
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
-  },
+  }, { -- telescope - search plugin for everything
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", branch = '0.1.x',
+      "nvim-tree/nvim-web-devicons",
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+    config = function() require("plugins.telescope") end,
+  }
 })
