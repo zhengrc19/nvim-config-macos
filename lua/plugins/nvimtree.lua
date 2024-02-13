@@ -4,8 +4,8 @@ if not status_ok then
 end
 vim.cmd [[highlight NvimTreeNormal guibg=#24262A]]
 
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "sf", "<cmd>NvimTreeToggle<CR>", opts)
+local key_opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap("n", "sf", "<cmd>NvimTreeToggle<CR>", key_opts)
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -60,6 +60,10 @@ nvim_tree.setup({
   help = {
     sort_by = "desc",
   },
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+  }
 })
 
 -- vim.api.nvim_create_autocmd("BufEnter", {
