@@ -32,7 +32,16 @@ require("lazy").setup({
   ----------------------------- BETTER EDITOR -----------------------------
   -------------------------------------------------------------------------
   { -- language grammar parser
-    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
+    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+    config = function ()
+      require("nvim-treesitter.configs").setup {
+        highlight = {
+          enable = true, -- false will disable the whole extension
+          disable = { "" }, -- list of language that will be disabled
+          additional_vim_regex_highlighting = false,
+        },
+      }
+    end
   }, { -- language-specific comments
     'numToStr/Comment.nvim', config = function() require('Comment').setup() end,
   }, { -- determine # of indent spaces
