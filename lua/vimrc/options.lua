@@ -10,9 +10,9 @@ local options = {
     breakindent = true,
     breakindentopt = "shift:2",
 -- searching
-    hlsearch = false,
---     ignorecase = true,
---     smartcase = true,
+    hlsearch = true,
+    ignorecase = true,
+    smartcase = true,
 -- linewidth
     colorcolumn = "80",
     cursorline = true,
