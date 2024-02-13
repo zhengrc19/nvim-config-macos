@@ -51,6 +51,8 @@ require("lazy").setup({
     'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end,
   }, { -- show colors on hex
     'norcalli/nvim-colorizer.lua', config = function() require("colorizer").setup() end,
+  }, { -- tpope's vim repeat
+    'tpope/vim-repeat'
   },
   -------------------------------------------------------------------------
   ----------------- COLOR THEME: Onedark inspired by Atom -----------------
@@ -86,7 +88,7 @@ require("lazy").setup({
       'hrsh7th/cmp-cmdline',
     },
     config = function() require('plugins.autocomplete') end,
-  }, {
+  }, { -- Snippet engine REQUIRED for autocompletion
     "L3MON4D3/LuaSnip", priority = 100,
     -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
