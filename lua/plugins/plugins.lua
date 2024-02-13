@@ -74,5 +74,19 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+  }, { -- Autocompletion
+    'hrsh7th/nvim-cmp', priority = 100,
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = function() require('plugins.autocomplete') end,
+  }, {
+    "L3MON4D3/LuaSnip", priority = 100,
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    dependencies = { "rafamadriz/friendly-snippets" },
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
   },
 })

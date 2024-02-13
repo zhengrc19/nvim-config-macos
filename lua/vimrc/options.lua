@@ -42,11 +42,13 @@ local options = {
   splitright = true,
 -- status and tab bar
   pumheight = 10,
-  -- showmode = false,
+-- showmode = false,
   showtabline = 2,
-  -- cmdheight = 2,
+-- cmdheight = 2,
   completeopt = { "menuone", "noselect" },
   conceallevel = 0,
+  -- color
+  termguicolors = true,
 }
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"    -- go to next line when at end
