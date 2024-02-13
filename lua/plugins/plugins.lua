@@ -49,6 +49,9 @@ require("lazy").setup({
     'windwp/nvim-autopairs', event = "InsertEnter", opts = {}
   }, { -- git change sign column
     'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end,
+  }, { -- git blame
+    'f-person/git-blame.nvim',
+    config = function () require("gitblame").setup{ delay = 1000 } end
   }, { -- show colors on hex
     'norcalli/nvim-colorizer.lua', config = function() require("colorizer").setup() end,
   }, { -- tpope's vim repeat
@@ -60,7 +63,10 @@ require("lazy").setup({
   {
     'navarasu/onedark.nvim', priority = 101,
     config = function()
-      require('onedark').setup({ toggle_style_key = '<leader>ls', })
+      require('onedark').setup({
+        toggle_style_key = '<leader>ls',
+        toggle_style_list = { 'dark', 'light', 'darker', 'deep' },
+      })
       require('onedark').load()
     end,
   },
@@ -102,4 +108,10 @@ require("lazy").setup({
     },
     config = function() require("plugins.telescope") end,
   }
+  -- TODOS
+  -- nvim-spectre
+  -- LSP with telescope selection
+  -- starting page (alpha nvim startify style)
+  -- hop.nvim
+  -- nvim-dap on mason
 })
