@@ -6,7 +6,8 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release lazypath,
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
@@ -35,6 +36,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
     config = function ()
       require("nvim-treesitter.configs").setup {
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
         highlight = {
           enable = true, -- false will disable the whole extension
           disable = { "" }, -- list of language that will be disabled
@@ -89,6 +91,7 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    build = ":MasonUpdate",
   }, { -- Autocompletion
     'hrsh7th/nvim-cmp', priority = 100,
     dependencies = {
