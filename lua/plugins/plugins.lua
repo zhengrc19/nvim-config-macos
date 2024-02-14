@@ -67,6 +67,9 @@ require("lazy").setup({
     'norcalli/nvim-colorizer.lua', config = function() require("colorizer").setup() end,
   }, { -- tpope's vim repeat
     'tpope/vim-repeat'
+  }, { -- hop to any character
+    'smoka7/hop.nvim', version = "*",
+    config = function() require("plugins.hop") end,
   },
   -------------------------------------------------------------------------
   ----------------- COLOR THEME: Onedark inspired by Atom -----------------
@@ -124,6 +127,6 @@ require("lazy").setup({
   -- nvim-spectre
   -- LSP with telescope selection
   -- starting page (alpha nvim startify style)
-  -- hop.nvim
   -- nvim-dap on mason
+  -- nvim-tree close on last buffer
 })
