@@ -38,8 +38,7 @@ require("lazy").setup({
       require("nvim-treesitter.configs").setup {
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
         highlight = {
-          enable = true, -- false will disable the whole extension
-          disable = { "" }, -- list of language that will be disabled
+          enable = true, disable = { "" },
           additional_vim_regex_highlighting = false,
         },
       }
@@ -62,7 +61,12 @@ require("lazy").setup({
     'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end,
   }, { -- git blame
     'f-person/git-blame.nvim',
-    config = function () require("gitblame").setup{ delay = 1000 } end
+    config = function ()
+      require("gitblame").setup{
+        delay = 1000,
+        message_template = '  <author> • <date> • <summary> • <sha>  '
+      }
+    end
   }, { -- show colors on hex
     'norcalli/nvim-colorizer.lua', config = function() require("colorizer").setup() end,
   }, { -- tpope's vim repeat
@@ -110,7 +114,7 @@ require("lazy").setup({
   }, { -- Snippet engine REQUIRED for autocompletion
     "L3MON4D3/LuaSnip", priority = 100,
     -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    version = "v2.*", -- Replace <v2> by the latest released major (first number of latest release)
     dependencies = { "rafamadriz/friendly-snippets" },
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
@@ -122,6 +126,10 @@ require("lazy").setup({
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function() require("plugins.telescope") end,
+  }, { -- debug adapter protocol (DAP)
+    "rcarriga/nvim-dap-ui",
+    'mfussenegger/nvim-dap',
+    "mfussenegger/nvim-dap-python",
   }
   -- TODOS
   -- nvim-spectre

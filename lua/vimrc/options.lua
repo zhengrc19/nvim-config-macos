@@ -23,7 +23,7 @@ local options = {
   mouse = "a",
 -- line numbers
   nu = true,
-  relativenumber = true,
+  relativenumber = false,
   numberwidth = 2,
   signcolumn = "yes",
 -- extra files

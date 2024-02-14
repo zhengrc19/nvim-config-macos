@@ -7,4 +7,4 @@ require "vimrc.autocmds"
 require "plugins.plugins"
 
 -- LSP
-require "plugins.lsp.lsp"
+require "plugins.lsp"
