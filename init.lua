@@ -8,3 +8,6 @@ require "plugins.plugins"
 
 -- LSP
 require "plugins.lsp"
+
+-- DAP
+require "plugins.dap"

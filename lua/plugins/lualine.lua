@@ -8,7 +8,15 @@ lualine.setup({
     theme = 'onedark',
     component_separators = {left = "|", right = "|"},
     section_separators = {left = "", right = ""},
-    -- disabled_filetypes = { "NvimTree" },
+    disabled_filetypes = {
+      "NvimTree",
+      "dap-repl",
+      "dapui_console",
+      "dapui_watches",
+      "dapui_breakpoints",
+      "dapui_scopes",
+      "dapui_stacks",
+    },
     always_divide_middle = false,
   },
   extensions = {

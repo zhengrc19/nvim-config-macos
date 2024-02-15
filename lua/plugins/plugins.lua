@@ -64,7 +64,8 @@ require("lazy").setup({
     config = function ()
       require("gitblame").setup{
         delay = 1000,
-        message_template = '  <author> • <date> • <summary> • <sha>  '
+        message_template = '  <author> • <date> • <summary> • <sha>  ',
+        message_when_not_committed = '  Not Committed Yet  '
       }
     end
   }, { -- show colors on hex
