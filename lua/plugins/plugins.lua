@@ -135,8 +135,6 @@ require("lazy").setup({
   }
   -- TODOS
   -- nvim-spectre
-  -- LSP with telescope selection
   -- starting page (alpha nvim startify style)
-  -- nvim-dap on mason
   -- nvim-tree close on last buffer
 })
