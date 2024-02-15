@@ -131,6 +131,7 @@ require("lazy").setup({
     "rcarriga/nvim-dap-ui",
     'mfussenegger/nvim-dap',
     "mfussenegger/nvim-dap-python",
+    'theHamsta/nvim-dap-virtual-text'
   }
   -- TODOS
   -- nvim-spectre

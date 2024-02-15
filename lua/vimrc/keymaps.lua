@@ -89,6 +89,10 @@ keymap("n", "M", "<cmd>put! =''<CR>", opts)
 -- Delete without yanking
 keymap("n", "<leader>d", '"_d', opts)
 
+-- Insert linebreak after cursor
+keymap("n", "<C-CR>", "i<CR><Esc>", opts)
+
+
 -------------------------------------------------------------------------
 
 
