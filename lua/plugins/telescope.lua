@@ -130,3 +130,4 @@ keymap("n", "<leader>fm", "<Cmd>Telescope oldfiles<CR>", opts)
 -- keymap("n", "<leader>fh", "<Cmd>Telescope help_tags<CR>", opts)
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('dap')

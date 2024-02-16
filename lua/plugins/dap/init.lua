@@ -36,3 +36,10 @@ end
 if vim.loop.fs_stat("./.vscode/launch.json") then
   require('dap.ext.vscode').load_launchjs()
 end
+
+local dap_repl_hl_ok, repl_hl = pcall(require, "nvim-dap-repl-highlights")
+if not dap_repl_hl_ok then
+  return
+end
+
+repl_hl.setup()

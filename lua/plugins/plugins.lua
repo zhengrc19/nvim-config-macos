@@ -33,7 +33,7 @@ require("lazy").setup({
   ----------------------------- BETTER EDITOR -----------------------------
   -------------------------------------------------------------------------
   { -- language grammar parser
-    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", priority = 40,
     config = function ()
       require("nvim-treesitter.configs").setup {
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
@@ -110,6 +110,7 @@ require("lazy").setup({
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-cmdline',
+      'rcarriga/cmp-dap',
     },
     config = function() require('plugins.autocomplete') end,
   }, { -- Snippet engine REQUIRED for autocompletion
@@ -131,10 +132,16 @@ require("lazy").setup({
     "rcarriga/nvim-dap-ui",
     'mfussenegger/nvim-dap',
     "mfussenegger/nvim-dap-python",
-    'theHamsta/nvim-dap-virtual-text'
+    'theHamsta/nvim-dap-virtual-text',
+    {
+      "nvim-telescope/telescope-dap.nvim",
+      dependencies = { "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap" }
+    },
+    { "LiadOz/nvim-dap-repl-highlights", build = ':TSInstall dap_repl'},
   }
   -- TODOS
   -- nvim-spectre
   -- starting page (alpha nvim startify style)
   -- nvim-tree close on last buffer
+  -- configure dap keyboard shortcuts
 })
