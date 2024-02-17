@@ -40,7 +40,7 @@ toggleterm.setup{
   -- --   },
   -- },
   shade_terminals = true,
-  shading_factor = '-30', -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
+  shading_factor = '-100', -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
   start_in_insert = true,
   insert_mappings = false, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
