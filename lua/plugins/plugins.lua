@@ -69,9 +69,11 @@ require("lazy").setup({
   }, { -- hop to any character
     'smoka7/hop.nvim', version = "*",
     config = function () require("plugins.hop") end,
-  }, {
+  }, { -- notification panel
     'rcarriga/nvim-notify',
     config = function () vim.notify = require("notify") end
+  }, { -- ui for input and selection
+    'stevearc/dressing.nvim', opts = {},
   },
   -------------------------------------------------------------------------
   ------------------------- THEME AND APPEARANCES -------------------------
