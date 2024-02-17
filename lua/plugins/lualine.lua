@@ -11,13 +11,8 @@ else
   LINE_X = {
     'encoding',
     'fileformat',
-    'filetype',
-    {
-      "swenv",
-      cond = function()
-        return vim.bo.filetype == "python"
-      end,
-    }
+    {'filetype', cond = function () return vim.bo.filetype ~= "python" end},
+    {"swenv", icon = "󰌠", cond = function() return vim.bo.filetype == "python" end,}
   }
 end
 
