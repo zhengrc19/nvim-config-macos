@@ -10,16 +10,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
 
-    -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gD', "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    -- vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
     -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    -- vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)

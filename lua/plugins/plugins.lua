@@ -137,7 +137,7 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim", branch = '0.1.x',
       "nvim-tree/nvim-web-devicons",
-      'nvim-telescope/telescope-ui-select.nvim',
+      -- 'nvim-telescope/telescope-ui-select.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function () require("plugins.telescope") end,

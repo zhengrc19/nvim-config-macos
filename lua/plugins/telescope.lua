@@ -111,9 +111,9 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {}
-    }
+    -- ["ui-select"] = {
+    --   require("telescope.themes").get_dropdown {}
+    -- }
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -135,4 +135,4 @@ keymap("n", "<leader>fm", "<Cmd>Telescope oldfiles<CR>", opts)
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('dap')
 require("telescope").load_extension("notify")
-require("telescope").load_extension("ui-select")
+-- require("telescope").load_extension("ui-select")
