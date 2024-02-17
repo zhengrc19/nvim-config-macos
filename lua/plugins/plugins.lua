@@ -107,6 +107,11 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     build = ":MasonUpdate",
+  }, { -- show light bulb for code actions
+    "kosayoda/nvim-lightbulb", event = "LspAttach",
+    config = function ()
+      require("nvim-lightbulb").setup({ autocmd = { enabled = true } })
+    end
   }, { -- Autocompletion
     'hrsh7th/nvim-cmp', priority = 100,
     dependencies = {
