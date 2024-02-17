@@ -15,22 +15,16 @@ end
 
 dap_vt.setup()
 
-dap_python.setup('~/mambaforge/bin/python')
+dap_python.setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
 
-local dapui = require("plugins.dap.dapui")
+require("plugins.dap.dapui")
+require("plugins.dap.keymaps")
 
-dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
-end
--- dap.listeners.before.event_terminated.dapui_config = function()
---   dapui.close()
--- end
--- dap.listeners.before.event_exited.dapui_config = function()
---   dapui.close()
--- end
+-- change breakpoint icon
+vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='⛔️', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapLogPoint', {text='⏺️', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='➡️', texthl='', linehl='debugPC', numhl=''})
 
 -- auto read launch json in root folder
 if vim.loop.fs_stat("./.vscode/launch.json") then

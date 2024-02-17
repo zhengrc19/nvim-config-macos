@@ -87,10 +87,10 @@ keymap("n", "m", "<cmd>put =''<CR>", opts)
 keymap("n", "M", "<cmd>put! =''<CR>", opts)
 
 -- Delete without yanking
-keymap("n", "<leader>d", '"_d', opts)
+keymap("n", "<C-d>", '"_d', opts)
 
 -- Insert linebreak after cursor
-keymap("n", "<C-CR>", "i<CR><Esc>", opts)
+keymap("n", "<C-m>", "i<CR><Esc>", opts)
 
 
 -------------------------------------------------------------------------
@@ -128,7 +128,7 @@ keymap("v", "<A-j>", ":m .+1<CR>gv=gv", opts)
 keymap("v", "<A-k>", ":m .-2<CR>gv=gv", opts)
 
 -- delete without yanking
-keymap("v", "<leader>d", '"_d', opts)
+keymap("v", "<C-d>", '"_d', opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Select all

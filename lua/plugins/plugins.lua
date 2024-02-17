@@ -65,7 +65,7 @@ require("lazy").setup({
       message_when_not_committed = '  Not Committed Yet  '
     }
   }, { -- show colors on hex
-    'norcalli/nvim-colorizer.lua', config = function () require("colorizer").setup() end,
+    'norcalli/nvim-colorizer.lua', config = function () require("colorizer").setup() end
   }, { -- hop to any character
     'smoka7/hop.nvim', version = "*",
     config = function () require("plugins.hop") end,
@@ -131,7 +131,6 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim", branch = '0.1.x',
       "nvim-tree/nvim-web-devicons",
-      -- 'nvim-telescope/telescope-ui-select.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function () require("plugins.telescope") end,
@@ -150,5 +149,4 @@ require("lazy").setup({
   -- nvim-spectre
   -- alpha nvim session integration
   -- undo tree
-  -- configure dap keyboard shortcuts
 })
