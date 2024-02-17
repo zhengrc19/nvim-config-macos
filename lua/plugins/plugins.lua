@@ -150,8 +150,5 @@ require("lazy").setup({
   -- nvim-spectre
   -- alpha nvim session integration
   -- undo tree
-  -- dressing nvim
-  -- telescope-ui-select
   -- configure dap keyboard shortcuts
-  -- configure telescope keyboard shortcuts
 })
