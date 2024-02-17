@@ -40,6 +40,23 @@ mason_lsp.setup_handlers {
 	["lua_ls"] = function ()
 		require("plugins.lsp.lua_ls").setup(capabilities)
 	end,
+	["pyright"] = function ()
+		lspconfig["pyright"].setup {
+      capabilities = capabilities,
+      root_dir = function(fname)
+        local util = require('lspconfig.util')
+        local root_files = {
+            'pyproject.toml',
+            'setup.py',
+            'setup.cfg',
+            'requirements.txt',
+            'Pipfile',
+            'pyrightconfig.json',
+        }
+        return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
+    end,
+    }
+	end,
 }
 
 require("plugins.lsp.autocmds")
