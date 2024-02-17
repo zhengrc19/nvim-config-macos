@@ -144,6 +144,12 @@ require("lazy").setup({
       dependencies = { "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap" }
     },
     "LiadOz/nvim-dap-repl-highlights",
+  }, {
+    "AckslD/swenv.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function ()
+      vim.cmd [[ command! CondaChooseEnv execute 'lua require("swenv.api").pick_venv()' ]]
+    end
   }
   -- TODOS
   -- nvim-spectre
