@@ -19,22 +19,22 @@ require("lazy").setup({
   { -- file tree
     "nvim-tree/nvim-tree.lua", version = "*", priority = 99,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function() require('plugins.nvimtree') end,
+    config = function () require('plugins.nvimtree') end,
   }, { -- status bar (bottom)
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function() require('plugins.lualine') end,
+    config = function () require('plugins.lualine') end,
   }, { -- tab bar
     'akinsho/bufferline.nvim', version = "*",
     dependencies = { 'nvim-tree/nvim-web-devicons', 'moll/vim-bbye' },
-    config = function() require('plugins.bufferline') end,
+    config = function () require('plugins.bufferline') end,
   },
   -------------------------------------------------------------------------
   ----------------------------- BETTER EDITOR -----------------------------
   -------------------------------------------------------------------------
   { -- language grammar parser
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", priority = 40,
-    config = function()
+    config = function ()
       require("nvim-treesitter.configs").setup {
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
         highlight = {
@@ -44,24 +44,24 @@ require("lazy").setup({
       }
     end
   }, { -- language-specific comments
-    'numToStr/Comment.nvim', config = function() require('Comment').setup() end,
+    'numToStr/Comment.nvim', config = function () require('Comment').setup() end,
   }, { -- determine # of indent spaces
-    'Darazaki/indent-o-matic', config = function() require('indent-o-matic').setup{} end,
+    'Darazaki/indent-o-matic', config = function () require('indent-o-matic').setup{} end,
   }, { -- indentation marker lines
     "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {},
-    config = function() require("ibl").setup() end,
+    config = function () require("ibl").setup() end,
   }, { -- change surrounding quotes
     "kylechui/nvim-surround", version = "*", event = "VeryLazy",
-    config = function() require("nvim-surround").setup{} end
+    config = function () require("nvim-surround").setup{} end
   }, { -- rainbow color brackets
     'HiPhish/rainbow-delimiters.nvim',
   }, { -- pair brackets 
     'windwp/nvim-autopairs', event = "InsertEnter", opts = {}
   }, { -- git change sign column
-    'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end,
+    'lewis6991/gitsigns.nvim', config = function () require("gitsigns").setup() end,
   }, { -- git blame
     'f-person/git-blame.nvim',
-    config = function()
+    config = function ()
       require("gitblame").setup{
         delay = 1000,
         message_template = '  <author> • <date> • <summary> • <sha>  ',
@@ -69,37 +69,41 @@ require("lazy").setup({
       }
     end
   }, { -- show colors on hex
-    'norcalli/nvim-colorizer.lua', config = function() require("colorizer").setup() end,
-  }, { -- tpope's vim repeat
-    'tpope/vim-repeat'
+    'norcalli/nvim-colorizer.lua', config = function () require("colorizer").setup() end,
   }, { -- hop to any character
     'smoka7/hop.nvim', version = "*",
-    config = function() require("plugins.hop") end,
+    config = function () require("plugins.hop") end,
   }, {
     'rcarriga/nvim-notify',
-    config = function()
+    config = function ()
       vim.notify = require("notify")
     end
   },
   -------------------------------------------------------------------------
-  ----------------- COLOR THEME: Onedark inspired by Atom -----------------
+  ------------------------- THEME AND APPEARANCES -------------------------
   -------------------------------------------------------------------------
-  {
+  { -- COLOR THEME: Onedark inspired by Atom
     'navarasu/onedark.nvim', priority = 101,
-    config = function()
+    config = function ()
       require('onedark').setup({
         toggle_style_key = '<leader>ls',
         toggle_style_list = { 'dark', 'light', 'darker', 'deep' },
       })
       require('onedark').load()
     end,
+  }, { -- starting page
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+    end
   },
   -------------------------------------------------------------------------
   ------------------------------ IDE FEATURES -----------------------------
   -------------------------------------------------------------------------
   { -- built-in terminal
     'akinsho/toggleterm.nvim', version = "*",
-    config = function() require('plugins.toggleterm') end
+    config = function () require('plugins.toggleterm') end
   }, { -- LSP installer and config
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -117,7 +121,7 @@ require("lazy").setup({
       'hrsh7th/cmp-cmdline',
       'rcarriga/cmp-dap',
     },
-    config = function() require('plugins.autocomplete') end,
+    config = function () require('plugins.autocomplete') end,
   }, { -- Snippet engine REQUIRED for autocompletion
     "L3MON4D3/LuaSnip", priority = 100,
     -- follow latest release.
@@ -132,7 +136,7 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
-    config = function() require("plugins.telescope") end,
+    config = function () require("plugins.telescope") end,
   }, { -- debug adapter protocol (DAP)
     "rcarriga/nvim-dap-ui",
     'mfussenegger/nvim-dap',
@@ -147,7 +151,6 @@ require("lazy").setup({
   -- TODOS
   -- nvim-spectre
   -- starting page (alpha nvim startify style)
-  -- nvim-tree close on last buffer
   -- configure dap keyboard shortcuts
   -- configure telescope keyboard shortcuts
 })
