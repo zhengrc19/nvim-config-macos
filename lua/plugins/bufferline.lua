@@ -7,11 +7,13 @@ vim.opt.termguicolors = true
 
 bufferline.setup({
   options = {
-    numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+    numbers = function (opts)
+      return opts.raise(opts.ordinal)
+    end, -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = "Bdelete %d", -- can be a string | function, see "Mouse actions"
     middle_mouse_command = "Bdelete %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-    right_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+    right_mouse_command = "Bdelete %d", -- can be a string | function, see "Mouse actions"
     indicator = {
       icon = "",
       style = 'underline'
@@ -27,6 +29,7 @@ bufferline.setup({
     --     return vim.fn.fnamemodify(buf.name, ':t:r')
     --   end
     -- end,
+    tab_size = 1,
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -83,15 +86,22 @@ bufferline.setup({
 })
 --
 local opts = {noremap = true, silent = true}
-vim.api.nvim_set_keymap("n", "<leader>gb", "<Cmd>BufferLinePick<CR>", opts)
---
--- -- vim.api.nvim_set_keymap("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
--- -- vim.api.nvim_set_keymap("n", "<leader>0", "<Cmd>BufferLineGoToBuffer 10<CR>", opts)
+local keymap = vim.api.nvim_set_keymap
+keymap("n", "<leader>gb", "<Cmd>BufferLinePick<CR>", opts)
+
+vim.keymap.del("n", "<Tab>")
+vim.keymap.del("n", "<S-Tab>")
+
+keymap("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+
+keymap("n", "<leader>1", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
+keymap("n", "<leader>2", "<Cmd>lua require('bufferline').go_to(2, true)<CR>", opts)
+keymap("n", "<leader>3", "<Cmd>lua require('bufferline').go_to(3, true)<CR>", opts)
+keymap("n", "<leader>4", "<Cmd>lua require('bufferline').go_to(4, true)<CR>", opts)
+keymap("n", "<leader>5", "<Cmd>lua require('bufferline').go_to(5, true)<CR>", opts)
+keymap("n", "<leader>6", "<Cmd>lua require('bufferline').go_to(6, true)<CR>", opts)
+keymap("n", "<leader>7", "<Cmd>lua require('bufferline').go_to(7, true)<CR>", opts)
+keymap("n", "<leader>8", "<Cmd>lua require('bufferline').go_to(8, true)<CR>", opts)
+keymap("n", "<leader>9", "<Cmd>lua require('bufferline').go_to(9, true)<CR>", opts)
+keymap("n", "<leader>0", "<Cmd>lua require('bufferline').go_to(10, true)<CR>", opts)
