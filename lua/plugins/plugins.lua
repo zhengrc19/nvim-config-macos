@@ -44,30 +44,26 @@ require("lazy").setup({
       }
     end
   }, { -- language-specific comments
-    'numToStr/Comment.nvim', config = function () require('Comment').setup() end,
+    'numToStr/Comment.nvim', opts = {}
   }, { -- determine # of indent spaces
-    'Darazaki/indent-o-matic', config = function () require('indent-o-matic').setup{} end,
+    'Darazaki/indent-o-matic', opts = {}
   }, { -- indentation marker lines
     "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {},
-    config = function () require("ibl").setup() end,
   }, { -- change surrounding quotes
-    "kylechui/nvim-surround", version = "*", event = "VeryLazy",
-    config = function () require("nvim-surround").setup{} end
+    "kylechui/nvim-surround", version = "*", event = "VeryLazy", opts = {}
   }, { -- rainbow color brackets
     'HiPhish/rainbow-delimiters.nvim',
   }, { -- pair brackets 
     'windwp/nvim-autopairs', event = "InsertEnter", opts = {}
   }, { -- git change sign column
-    'lewis6991/gitsigns.nvim', config = function () require("gitsigns").setup() end,
+    'lewis6991/gitsigns.nvim', opts = {}
   }, { -- git blame
     'f-person/git-blame.nvim',
-    config = function ()
-      require("gitblame").setup{
-        delay = 1000,
-        message_template = '  <author> • <date> • <summary> • <sha>  ',
-        message_when_not_committed = '  Not Committed Yet  '
-      }
-    end
+    opts = {
+      delay = 1000,
+      message_template = '  <author> • <date> • <summary> • <sha>  ',
+      message_when_not_committed = '  Not Committed Yet  '
+    }
   }, { -- show colors on hex
     'norcalli/nvim-colorizer.lua', config = function () require("colorizer").setup() end,
   }, { -- hop to any character
@@ -75,9 +71,7 @@ require("lazy").setup({
     config = function () require("plugins.hop") end,
   }, {
     'rcarriga/nvim-notify',
-    config = function ()
-      vim.notify = require("notify")
-    end
+    config = function () vim.notify = require("notify") end
   },
   -------------------------------------------------------------------------
   ------------------------- THEME AND APPEARANCES -------------------------
@@ -109,9 +103,7 @@ require("lazy").setup({
     build = ":MasonUpdate",
   }, { -- show light bulb for code actions
     "kosayoda/nvim-lightbulb", event = "LspAttach",
-    config = function ()
-      require("nvim-lightbulb").setup({ autocmd = { enabled = true } })
-    end
+    opts = { autocmd = { enabled = true } },
   }, { -- Autocompletion
     'hrsh7th/nvim-cmp', priority = 100,
     dependencies = {
