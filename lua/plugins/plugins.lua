@@ -34,7 +34,7 @@ require("lazy").setup({
   -------------------------------------------------------------------------
   { -- language grammar parser
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", priority = 40,
-    config = function ()
+    config = function()
       require("nvim-treesitter.configs").setup {
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
         highlight = {
@@ -61,7 +61,7 @@ require("lazy").setup({
     'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end,
   }, { -- git blame
     'f-person/git-blame.nvim',
-    config = function ()
+    config = function()
       require("gitblame").setup{
         delay = 1000,
         message_template = '  <author> • <date> • <summary> • <sha>  ',
@@ -75,6 +75,11 @@ require("lazy").setup({
   }, { -- hop to any character
     'smoka7/hop.nvim', version = "*",
     config = function() require("plugins.hop") end,
+  }, {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+    end
   },
   -------------------------------------------------------------------------
   ----------------- COLOR THEME: Onedark inspired by Atom -----------------
@@ -144,4 +149,5 @@ require("lazy").setup({
   -- starting page (alpha nvim startify style)
   -- nvim-tree close on last buffer
   -- configure dap keyboard shortcuts
+  -- configure telescope keyboard shortcuts
 })
