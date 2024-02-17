@@ -137,7 +137,7 @@ require("lazy").setup({
       "nvim-telescope/telescope-dap.nvim",
       dependencies = { "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap" }
     },
-    { "LiadOz/nvim-dap-repl-highlights", build = ':TSInstall dap_repl'},
+    "LiadOz/nvim-dap-repl-highlights",
   }
   -- TODOS
   -- nvim-spectre
