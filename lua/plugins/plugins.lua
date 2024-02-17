@@ -144,13 +144,13 @@ require("lazy").setup({
       dependencies = { "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap" }
     },
     "LiadOz/nvim-dap-repl-highlights",
-  }, {
+  }, { -- switch python venv/conda env
     "AckslD/swenv.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function () require("plugins.swenv") end,
   }
   -- TODOS
   -- nvim-spectre
-  -- alpha nvim session integration
+  -- alpha nvim session integration and customization
   -- undo tree
 })
