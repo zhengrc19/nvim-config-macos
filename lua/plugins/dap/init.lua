@@ -43,3 +43,8 @@ if not dap_repl_hl_ok then
 end
 
 repl_hl.setup()
+
+local repl_treesitter_path = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser/dap_repl.so"
+if not vim.loop.fs_stat(repl_treesitter_path) then
+  vim.cmd [[ TSInstall dap_repl ]]
+end
