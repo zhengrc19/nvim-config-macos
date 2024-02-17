@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
     -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Telescope lsp_code_actions<CR>", opts)
+    vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 

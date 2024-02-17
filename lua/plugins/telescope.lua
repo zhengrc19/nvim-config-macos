@@ -79,10 +79,10 @@ telescope.setup {
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
-    lsp_code_actions = {
-      theme = "cursor",
-      -- winblend = 10,
-    },
+    -- lsp_code_actions = {
+    --   theme = "cursor",
+    --   -- winblend = 10,
+    -- },
     -- find_files = {
     --   theme = "dropdown",
     --   -- winblend = 10,
@@ -111,6 +111,9 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {}
+    }
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -132,3 +135,4 @@ keymap("n", "<leader>fm", "<Cmd>Telescope oldfiles<CR>", opts)
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('dap')
 require("telescope").load_extension("notify")
+require("telescope").load_extension("ui-select")
