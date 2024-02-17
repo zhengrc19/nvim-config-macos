@@ -94,9 +94,7 @@ require("lazy").setup({
   }, { -- starting page
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
-    end
+    config = function () require('plugins.alpha') end
   },
   -------------------------------------------------------------------------
   ------------------------------ IDE FEATURES -----------------------------
@@ -150,7 +148,10 @@ require("lazy").setup({
   }
   -- TODOS
   -- nvim-spectre
-  -- starting page (alpha nvim startify style)
+  -- alpha nvim session integration
+  -- undo tree
+  -- dressing nvim
+  -- telescope-ui-select
   -- configure dap keyboard shortcuts
   -- configure telescope keyboard shortcuts
 })
