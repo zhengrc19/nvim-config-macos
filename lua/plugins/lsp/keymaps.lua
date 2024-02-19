@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.keymap.set("n", "gL", '<cmd>Telescope diagnostics<CR>', opts)
 
-    vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
     vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
     vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 

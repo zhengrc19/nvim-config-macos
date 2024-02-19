@@ -59,4 +59,4 @@ mason_lsp.setup_handlers {
 	end,
 }
 
-require("plugins.lsp.autocmds")
+require("plugins.lsp.keymaps")

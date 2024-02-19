@@ -153,4 +153,5 @@ require("lazy").setup({
   -- nvim-spectre
   -- alpha nvim session integration and customization
   -- undo tree
+  -- vista vim
 })
