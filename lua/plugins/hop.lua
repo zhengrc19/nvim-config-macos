@@ -37,4 +37,4 @@ vim.keymap.set('', 'T', function()
   })
 end, {remap=true})
 
-vim.keymap.set('', ',', function() hop.hint_words() end, {remap=true})
+vim.keymap.set('', ',', function() hop.hint_char1() end, {remap=true})
