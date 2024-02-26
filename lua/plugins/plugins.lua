@@ -148,6 +148,12 @@ require("lazy").setup({
     "AckslD/swenv.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function () require("plugins.swenv") end,
+  }, { -- markdown live preview
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+    config = function() require("plugins.markdown") end,
   }
   -- TODOS
   -- nvim-spectre
