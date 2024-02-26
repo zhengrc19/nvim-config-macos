@@ -154,10 +154,15 @@ require("lazy").setup({
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
     config = function() require("plugins.markdown") end,
+  }, { -- undo tree
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+    keys = { -- load the plugin only when using it's keybinding:
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
   }
   -- TODOS
   -- nvim-spectre
   -- alpha nvim session integration and customization
-  -- undo tree
   -- vista vim
 })
