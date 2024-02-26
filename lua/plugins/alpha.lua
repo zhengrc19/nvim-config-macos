@@ -45,7 +45,6 @@ if session_manager_exists then
   local tbl = {}
   local start = 20
   for i,v in ipairs(sessions) do
-    -- print(i,v.filename)
     table.insert(tbl, startify.button(
       tostring(i + start - 1),
       v.dir.filename,
@@ -65,7 +64,9 @@ if session_manager_exists then
       }
     },
   }
-  table.insert(startify.config.layout, 5, sess)
+  if #sessions > 0 then
+    table.insert(startify.config.layout, 5, sess)
+  end
 end
 
 alpha.setup(startify.config)
