@@ -174,6 +174,5 @@ require("lazy").setup({
   }
   -- TODOS
   -- nvim-spectre
-  -- alpha nvim session integration and customization
   -- vista vim
 })
