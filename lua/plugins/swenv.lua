@@ -10,16 +10,13 @@ swenv.setup({
   -- adds the base path, which is not in envs/ but in the root path.
   get_venvs = function(venvs_path)
     local venvs = require('swenv.api').get_venvs(venvs_path)
-    if os.getenv("CONDA_PREFIX_1") then
+    -- add base env in conda
+    local path = os.getenv("CONDA_EXE")
+    if path then
+      path = vim.fn.fnamemodify(path, ":p:h:h")
       table.insert(venvs, 1, {
         name = "base",
-        path = os.getenv("CONDA_PREFIX_1"),
-        source = "conda"
-      })
-    elseif os.getenv("CONDA_PREFIX") then
-      table.insert(venvs, 1, {
-        name = "base",
-        path = os.getenv("CONDA_PREFIX"),
+        path = path,
         source = "conda"
       })
     end
