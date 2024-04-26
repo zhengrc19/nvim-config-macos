@@ -171,6 +171,8 @@ require("lazy").setup({
         autosave_last_session = false,
       })
     end
+  }, { -- github copilot (needs subscription)
+    'github/copilot.vim',
   }
   -- TODOS
   -- nvim-spectre
