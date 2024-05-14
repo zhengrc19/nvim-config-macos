@@ -41,7 +41,7 @@ startify.section.header.val = {
 }
 
 if session_manager_exists then
-  local sessions = sess_man.get_sessions()
+  local sessions = sess_man.get_sessions({silent = true})
   local tbl = {}
   local start = 20
   for i,v in ipairs(sessions) do
